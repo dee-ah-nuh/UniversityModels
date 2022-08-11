@@ -8,6 +8,8 @@ import re
 import numpy as np
 import pandas as pd
 import csv
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 #separate into dataframes
 #sum the column values 
@@ -100,6 +102,125 @@ newTransfer2016 = df2016['Part time total (EF2016_RV  All students  Undergraduat
 totalEnrollment2016 = df2016['Full time total (EF2016_RV  All students  Undergraduate total)'] + graduateEnrollment2016
 
 
+#2015
+undergraduateFullTime2015 = df2015['Full time total (EF2015_RV  All students  Undergraduate total)']
+undergraduatePartTime2015 = df2015['Part time total (EF2015_RV  All students  Undergraduate total)']
+graduateEnrollment2015 = df2015['Full time total (EF2015_RV  All students  Graduate and First professional)'] + df2015['Part time total (EF2015_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2015 = df2015['Full time total (EF2015_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2015 ['Part time total (EF2015_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2015 = df2015['Part time total (EF2015_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2015['Full time total (EF2015_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2015 = df2015['Full time total (EF2015_RV  All students  Undergraduate total)'] + graduateEnrollment2015
+
+#2014
+undergraduateFullTime2014 = df2014['Full time total (EF2014_RV  All students  Undergraduate total)']
+undergraduatePartTime2014 = df2014['Part time total (EF2014_RV  All students  Undergraduate total)']
+graduateEnrollment2014 = df2014['Full time total (EF2014_RV  All students  Graduate and First professional)'] + df2014['Part time total (EF2014_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2014 = df2014['Full time total (EF2014_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2014 ['Part time total (EF2014_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2014 = df2014['Part time total (EF2014_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2014['Full time total (EF2014_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2014 = df2014['Full time total (EF2014_RV  All students  Undergraduate total)'] + graduateEnrollment2014
+
+#2013
+undergraduateFullTime2013 = df2013['Full time total (EF2013_RV  All students  Undergraduate total)']
+undergraduatePartTime2013 = df2013['Part time total (EF2013_RV  All students  Undergraduate total)']
+graduateEnrollment2013 = df2013['Full time total (EF2013_RV  All students  Graduate and First professional)'] + df2013['Part time total (EF2013_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2013 = df2013['Full time total (EF2013_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2013['Part time total (EF2013_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2013 = df2013['Part time total (EF2013_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2013['Full time total (EF2013_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2013 = df2013['Full time total (EF2013_RV  All students  Undergraduate total)'] + graduateEnrollment2013
+
+#2012
+undergraduateFullTime2012 = df2012['Full time total (EF2012_RV  All students  Undergraduate total)']
+undergraduatePartTime2012 = df2012['Part time total (EF2012_RV  All students  Undergraduate total)']
+graduateEnrollment2012 = df2012['Full time total (EF2012_RV  All students  Graduate and First professional)'] + df2012['Part time total (EF2012_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2012 = df2012['Full time total (EF2012_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2012 ['Part time total (EF2012_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2012 = df2012['Part time total (EF2012_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2012['Full time total (EF2012_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2012 = df2012['Full time total (EF2012_RV  All students  Undergraduate total)'] + graduateEnrollment2012
+
+#2011
+undergraduateFullTime2011 = df2011['Full time total (EF2011_RV  All students  Undergraduate total)']
+undergraduatePartTime2011 = df2011['Part time total (EF2011_RV  All students  Undergraduate total)']
+graduateEnrollment2011 = df2011['Full time total (EF2011_RV  All students  Graduate and First professional)'] + df2011['Part time total (EF2011_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2011 = df2011['Full time total (EF2011_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2011 ['Part time total (EF2011_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2011 = df2011['Part time total (EF2011_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2011['Full time total (EF2011_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2011 = df2011['Full time total (EF2011_RV  All students  Undergraduate total)'] + graduateEnrollment2011
+
+#2010
+undergraduateFullTime2010 = df2010['Full time total (EF2010_RV  All students  Undergraduate total)']
+undergraduatePartTime2010= df2010['Part time total (EF2010_RV  All students  Undergraduate total)']
+graduateEnrollment2010 = df2010['Full time total (EF2010_RV  All students  Graduate and First professional)'] + df2010['Part time total (EF2010_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2010 = df2010['Full time total (EF2010_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2010 ['Part time total (EF2010_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2010 = df2010['Part time total (EF2010_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2010['Full time total (EF2010_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2010 = df2010['Full time total (EF2010_RV  All students  Undergraduate total)'] + graduateEnrollment2010
+
+#2009
+undergraduateFullTime2009 = df2009['Full time total (EF2009_RV  All students  Undergraduate total)']
+undergraduatePartTime2009 = df2009['Part time total (EF2009_RV  All students  Undergraduate total)']
+graduateEnrollment2009 = df2009['Full time total (EF2009_RV  All students  Graduate and First professional)'] + df2009['Part time total (EF2009_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2009 = df2009['Full time total (EF2009_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2009 ['Part time total (EF2009_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2009 = df2009['Part time total (EF2009_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2009['Full time total (EF2009_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2009 = df2009['Full time total (EF2009_RV  All students  Undergraduate total)'] + graduateEnrollment2009
+
+#2008
+undergraduateFullTime2008 = df2008['Full time total (EF2008_RV  All students  Undergraduate total)']
+undergraduatePartTime2008 = df2008['Part time total (EF2008_RV  All students  Undergraduate total)']
+graduateEnrollment2008 = df2008['Full time total (EF2008_RV  All students  Graduate and First professional)'] + df2008['Part time total (EF2008_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2008 = df2008['Full time total (EF2008_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2008 ['Part time total (EF2008_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2008 = df2008['Part time total (EF2008_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2008['Full time total (EF2008_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2008 = df2008['Full time total (EF2008_RV  All students  Undergraduate total)'] + graduateEnrollment2008
+
+#2007
+undergraduateFullTime2007 = df2007['Full time total (EF2007_RV  All students  Undergraduate total)']
+undergraduatePartTime2007 = df2007['Part time total (EF2007_RV  All students  Undergraduate total)']
+graduateEnrollment2007 = df2007['Full time total (EF2007_RV  All students  Graduate and First professional)'] + df2007['Part time total (EF2007_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2007 = df2007['Full time total (EF2007_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2007['Part time total (EF2007_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2007 = df2007['Part time total (EF2007_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2007['Full time total (EF2007_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2007 = df2007['Full time total (EF2007_RV  All students  Undergraduate total)'] + graduateEnrollment2007
+
+#2006
+undergraduateFullTime2006 = df2006['Full time total (EF2006_RV  All students  Undergraduate total)']
+undergraduatePartTime2006 = df2006['Part time total (EF2006_RV  All students  Undergraduate total)']
+graduateEnrollment2006 = df2006['Full time total (EF2006_RV  All students  Graduate and First professional)'] + df2006['Part time total (EF2006_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2006 = df2006['Full time total (EF2006_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2006['Part time total (EF2006_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2006 = df2006['Part time total (EF2006_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2006['Full time total (EF2006_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2006 = df2006['Full time total (EF2006_RV  All students  Undergraduate total)'] + graduateEnrollment2006
+
+#2005
+undergraduateFullTime2005 = df2005['Full time total (EF2005_RV  All students  Undergraduate total)']
+undergraduatePartTime2005 = df2005['Part time total (EF2005_RV  All students  Undergraduate total)']
+graduateEnrollment2005 = df2005['Full time total (EF2005_RV  All students  Graduate and First professional)'] + df2005['Part time total (EF2005_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2005 = df2005['Full time total (EF2005_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2005 ['Part time total (EF2005_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2005 = df2005['Part time total (EF2005_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2005['Full time total (EF2005_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2005 = df2005['Full time total (EF2005_RV  All students  Undergraduate total)'] + graduateEnrollment2005
+
+#2004
+undergraduateFullTime2004 = df2004['Full time total (EF2004_RV  All students  Undergraduate total)']
+undergraduatePartTime2004= df2004['Part time total (EF2004_RV  All students  Undergraduate total)']
+graduateEnrollment2004 = df2004['Full time total (EF2004_RV  All students  Graduate and First professional)'] + df2004['Part time total (EF2004_RV  All students  Graduate and First professional)']
+firstTimeFreshmen2004 = df2004['Full time total (EF2004_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2004['Part time total (EF2004_RV  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2004 = df2004['Part time total (EF2004_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2004['Full time total (EF2004_RV  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2004 = df2004['Full time total (EF2004_RV  All students  Undergraduate total)'] + graduateEnrollment2004
+
+#2003
+undergraduateFullTime2003 = df2003['Full time total (EF2003  All students  Undergraduate total)']
+undergraduatePartTime2003 = df2003['Part time total (EF2003  All students  Undergraduate total)']
+graduateEnrollment2003 = df2003['Full time total (EF2003  All students  Graduate and First professional)'] + df2003['Part time total (EF2003  All students  Graduate and First professional)']
+firstTimeFreshmen2003 = df2003['Full time total (EF2003  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2003['Part time total (EF2003  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2003 = df2003['Part time total (EF2003  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2003['Full time total (EF2003  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2003 = df2003['Full time total (EF2003  All students  Undergraduate total)'] + graduateEnrollment2003
+
+#2002
+undergraduateFullTime2002 = df2002['Full time total (EF2002  All students  Undergraduate total)']
+undergraduatePartTime2002 = df2002['Part time total (EF2002  All students  Undergraduate total)']
+graduateEnrollment2002 = df2002['Full time total (EF2002  All students  Graduate and First professional)'] + df2002['Part time total (EF2002  All students  Graduate and First professional)']
+firstTimeFreshmen2002 = df2002['Full time total (EF2002  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2002['Part time total (EF2002  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2002 = df2002['Part time total (EF2002  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2002['Full time total (EF2002  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2002 = df2002['Full time total (EF2002  All students  Undergraduate total)'] + graduateEnrollment2002
+
+#2001
+undergraduateFullTime2001 = df2001['Full time total (EF2001  All students  Undergraduate total)']
+undergraduatePartTime2001 = df2001['Part time total (EF2001  All students  Undergraduate total)']
+graduateEnrollment2001 = df2001['Full time total (EF2001  All students  Graduate and First professional)'] + df2001['Part time total (EF2001  All students  Graduate and First professional)']
+firstTimeFreshmen2001 = df2001['Full time total (EF2001  All students  Undergraduate  Degree/certificate-seeking  First-time)'] + df2001['Part time total (EF2001  All students  Undergraduate  Degree/certificate-seeking  First-time)']
+newTransfer2001 = df2001['Part time total (EF2001  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)'] + df2001['Full time total (EF2001  All students  Undergraduate  Other degree/certificate-seeking  Transfer-ins)']
+totalEnrollment2001 = df2001['Full time total (EF2001  All students  Undergraduate total)'] + graduateEnrollment2001
 
 # =============================================================================
 # DATAFRAME
@@ -117,13 +238,41 @@ totalEnrollment2016 = df2016['Full time total (EF2016_RV  All students  Undergra
 
 
 universityModelFinal = pd.DataFrame({
-                        "2020":[totalEnrollment2020 , undergraduateFullTime2020, undergraduatePartTime2020, graduateEnrollment2020, firstTimeFreshmen2020, newTransfer2020],
+                        "2020":[totalEnrollment2020, undergraduateFullTime2020, undergraduatePartTime2020, graduateEnrollment2020, firstTimeFreshmen2020, newTransfer2020],
                          "2019":[totalEnrollment2019 , undergraduateFullTime2019, undergraduatePartTime2019, graduateEnrollment2019, firstTimeFreshmen2019, newTransfer2019],
                          "2018":[totalEnrollment2018 , undergraduateFullTime2018, undergraduatePartTime2018, graduateEnrollment2018, firstTimeFreshmen2018, newTransfer2018],
-                         "2017":[totalEnrollment2017 , undergraduateFullTime2017, undergraduatePartTime2017, graduateEnrollment2017, firstTimeFreshmen2017, newTransfer2017]})
+                         "2017":[totalEnrollment2017 , undergraduateFullTime2017, undergraduatePartTime2017, graduateEnrollment2017, firstTimeFreshmen2017, newTransfer2017],
+                         "2016":[totalEnrollment2016 , undergraduateFullTime2016, undergraduatePartTime2016, graduateEnrollment2016, firstTimeFreshmen2016, newTransfer2016],
+                          "2015":[totalEnrollment2015 , undergraduateFullTime2015, undergraduatePartTime2015, graduateEnrollment2015, firstTimeFreshmen2015, newTransfer2015],
+                          "2014":[totalEnrollment2014 , undergraduateFullTime2014, undergraduatePartTime2014, graduateEnrollment2014, firstTimeFreshmen2014, newTransfer2014],
+                          "2013":[totalEnrollment2013 , undergraduateFullTime2013, undergraduatePartTime2013, graduateEnrollment2013, firstTimeFreshmen2013, newTransfer2013],
+                          "2012":[totalEnrollment2012 , undergraduateFullTime2012, undergraduatePartTime2012, graduateEnrollment2012, firstTimeFreshmen2012, newTransfer2012],
+                           "2011":[totalEnrollment2011 , undergraduateFullTime2011, undergraduatePartTime2011, graduateEnrollment2011, firstTimeFreshmen2011, newTransfer2011],
+                           "2010":[totalEnrollment2010 , undergraduateFullTime2010, undergraduatePartTime2010, graduateEnrollment2010, firstTimeFreshmen2010, newTransfer2010],
+                           "2009":[totalEnrollment2009 , undergraduateFullTime2009, undergraduatePartTime2009, graduateEnrollment2009, firstTimeFreshmen2009, newTransfer2009],
+                           "2008":[totalEnrollment2008 , undergraduateFullTime2008, undergraduatePartTime2008, graduateEnrollment2008, firstTimeFreshmen2008, newTransfer2008],
+                           "2007":[totalEnrollment2007 , undergraduateFullTime2007, undergraduatePartTime2007, graduateEnrollment2007, firstTimeFreshmen2007, newTransfer2007],
+                           "2006":[totalEnrollment2006 , undergraduateFullTime2006, undergraduatePartTime2006, graduateEnrollment2006, firstTimeFreshmen2006, newTransfer2006],
+                           "2005":[totalEnrollment2005 , undergraduateFullTime2005, undergraduatePartTime2005, graduateEnrollment2005, firstTimeFreshmen2005, newTransfer2005],
+                           "2004":[totalEnrollment2004 , undergraduateFullTime2004, undergraduatePartTime2004, graduateEnrollment2004, firstTimeFreshmen2004, newTransfer2004],
+                           "2003":[totalEnrollment2003 , undergraduateFullTime2003, undergraduatePartTime2003, graduateEnrollment2003, firstTimeFreshmen2003, newTransfer2003],
+                           "2002":[totalEnrollment2002 , undergraduateFullTime2002, undergraduatePartTime2002, graduateEnrollment2002, firstTimeFreshmen2002, newTransfer2002],
+                           "2001":[totalEnrollment2001 , undergraduateFullTime2001, undergraduatePartTime2001, graduateEnrollment2001, firstTimeFreshmen2001, newTransfer2001]}).astype(float)
+details = {
+    'Year' : ["2000,2001,2002,2003,2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 2017,2018,2019,2020,2021"],
+    'Undergraduate Part-Time Enrollment' : [23, 21, 22, 21],
+    'Undergraduate Full-Time Enrollment' : ['BHU', 'JNU', 'DU', 'BHU'],
+    'Graduate Enrollment' : ['Ankit', 'Aishwarya', 'Shaurya', 'Shivangi'],
+    'First Time Enrollment' : [23, 21, 22, 21],
+    'Transfer-Ins' : ['BHU', 'JNU', 'DU', 'BHU']}
 
+year_list = []
+for value in range(2000, 2022):
+    print(f"\n{value}")
+    year_list.append(value)
+years = "2000,2001,2002,2003,2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 2017,2018,2019,2020,2021]"
 
-
+universityModelFinal.to_csv('University Model Final.csv')
 
 
 
