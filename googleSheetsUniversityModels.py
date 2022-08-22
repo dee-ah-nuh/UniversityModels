@@ -64,34 +64,36 @@ df = df.fillna(0)
 
 df2020=df.loc[:,['2020' in i for i in df.columns]]
 df2020.astype(int)
-df2019=df.loc[:,['2019' in i for i in df.columns]]
-df2019.astype(int)
-df2018=df.loc[:,['2018' in i for i in df.columns]]
-df2018.astype(int)
-df2017= df.loc[:,['2017' in i for i in df.columns]]
-df2017.astype(int)
-df2016= df.loc[:,['2016' in i for i in df.columns]]
-df2016.astype(int)
-df2015= df.loc[:,['2015' in i for i in df.columns]]
-df2015.astype(int)
-df2014= df.loc[:,['2014' in i for i in df.columns]]
-df2014.astype(int)
-df2013= df.loc[:,['2013' in i for i in df.columns]]
-df2013.astype(int)
-df2012= df.loc[:,['2012' in i for i in df.columns]]
-df2012.astype(int)
-df2011= df.loc[:,['2011' in i for i in df.columns]]
-df2011.astype(int)
-df2010= df.loc[:,['2010' in i for i in df.columns]]
-df2010.astype(int)
-df2009= df.loc[:,['2009' in i for i in df.columns]]
-df2009.astype(int)
-df2008= df.loc[:,['2008' in i for i in df.columns]]
-df2008.astype(int)
-df2007= df.loc[:,['2007' in i for i in df.columns]]
-df2007.astype(int)
-df2006= df.loc[:,['2006' in i for i in df.columns]]
-df2006.astype(int)
+
+
+# df2019=df.loc[:,['2019' in i for i in df.columns]]
+# df2019.astype(int)
+# df2018=df.loc[:,['2018' in i for i in df.columns]]
+# df2018.astype(int)
+# df2017= df.loc[:,['2017' in i for i in df.columns]]
+# df2017.astype(int)
+# df2016= df.loc[:,['2016' in i for i in df.columns]]
+# df2016.astype(int)
+# df2015= df.loc[:,['2015' in i for i in df.columns]]
+# df2015.astype(int)
+# df2014= df.loc[:,['2014' in i for i in df.columns]]
+# df2014.astype(int)
+# df2013= df.loc[:,['2013' in i for i in df.columns]]
+# df2013.astype(int)
+# df2012= df.loc[:,['2012' in i for i in df.columns]]
+# df2012.astype(int)
+# df2011= df.loc[:,['2011' in i for i in df.columns]]
+# df2011.astype(int)
+# df2010= df.loc[:,['2010' in i for i in df.columns]]
+# df2010.astype(int)
+# df2009= df.loc[:,['2009' in i for i in df.columns]]
+# df2009.astype(int)
+# df2008= df.loc[:,['2008' in i for i in df.columns]]
+# df2008.astype(int)
+# df2007= df.loc[:,['2007' in i for i in df.columns]]
+# df2007.astype(int)
+# df2006= df.loc[:,['2006' in i for i in df.columns]]
+# df2006.astype(int)
 
 
 # =============================================================================
