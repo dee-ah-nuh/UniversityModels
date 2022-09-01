@@ -13,14 +13,14 @@ import matplotlib.pyplot as plt
 import gspread
 import df2gspread as d2g
 import pygsheets
+
 #separate into dataframes
 #sum the column values 
 #finally append those column values to a new dataframe with new name 
+
 def df_to_sheet(wbname,sheetname,df,gspread,*arg):
     wb=gspread.open(wbname)
-    #Open tab
     ws=wb.worksheet(sheetname)
-    #Write the values
     ws.update([df.columns.values.tolist()] + df.values.tolist())
 
 def gsheet_to_df(book,sheet,gspread,*arg):
@@ -34,32 +34,28 @@ def gsheet_to_df(book,sheet,gspread,*arg):
     else:
         df=pd.DataFrame(data)
         return df
-
-def write_to_gsheet(gspread, spreadsheet_id, sheet_name, data_df):
-    """
-    this function takes data_df and writes it under spreadsheet_id
-    and sheet_name using your credentials under service_file_path
-    """
-    gc = pygsheets.authorize(service_file=service_file_path)
-    sh = gc.open_by_key(spreadsheet_id)
-    try:
-        sh.add_worksheet(sheet_name)
-    except:
-        pass
-    wks_write = sh.worksheet_by_title(sheet_name)
-    wks_write.clear('A1',None,'*')
-    wks_write.set_dataframe(data_df, (1,1), encoding='utf-8', fit=True)
-    wks_write.frozen_rows = 1
+    
+def df_to_sheet(wbname,sheetname,df,gspread,*arg):
+    df=df.fillna('')
+    wb=gspread.open(wbname)
+    ws=wb.worksheet(sheetname)
+    if arg:
+        if arg[0]==1:
+            ws.clear()
+        if arg[0]==2:
+            ws.append_rows(df.values.tolist())
+            return
+    ws.update([df.columns.values.tolist()] + df.values.tolist())           
 
 sa = gspread.service_account(filename='universitymodelssheetscreds.json')
-# sheet = sa.open("University-Model")
+sheet = sa.open("University-Model")
 idgs = '12s2slCTbXxj8n3Fszowloh3A7c85JRKqgCHrwTlRJwQ'
 
-# universityData = gsheet_to_df("University-Model", "UniversityData", sa, 1)
 
-# worksheet = sheet.worksheet('UniversityData')
-# print("Rows:", worksheet.row_count)
-# print("Columns:", worksheet.col_count)
+universityData = gsheet_to_df("University-Model", "UniversityData", sa, 1)
+worksheet = sheet.worksheet('UniversityData')
+print("Rows:", worksheet.row_count)
+print("Columns:", worksheet.col_count)
 
 df = pd.read_csv(open('James Madison Data.csv'))
 df1 = pd.read_csv("C:/Users/BEEMO/Downloads/James Madison Data.csv")
@@ -308,7 +304,7 @@ universityModelFinal = pd.DataFrame({
 universityModelFinal.reset_index()
 universityModelFinal.to_csv('University Model Final.csv')
 
-write_to_gsheet(sa, idgs, 'Sheet1', 'universityModelFinal')
+df_to_sheet('University-Model', 'Sheet1', universityModelFinal, sa)
 # =============================================================================
 #     
 # 
